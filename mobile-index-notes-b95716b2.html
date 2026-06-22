@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>再访 · 竞彩网</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f3f8fb;
+      color: #1e2b34;
+      line-height: 1.6;
+      padding: 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 2.5rem;
+      padding: 2rem 1.8rem 2.5rem;
+      box-shadow: 0 12px 40px rgba(0, 40, 50, 0.08), 0 2px 6px rgba(0, 30, 40, 0.03);
+      transition: box-shadow 0.2s;
+    }
+
+    @media (min-width: 600px) {
+      .container {
+        padding: 3.5rem 3rem 4rem;
+        border-radius: 3rem;
+      }
+    }
+
+    /* 蓝绿色点缀体系 */
+    .accent-border {
+      border-left: 4px solid #2b9e9a;
+      padding-left: 1.2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #d4f0ef;
+      color: #11635e;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 590;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #0f2d30;
+      margin-bottom: 0.4rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #3e5b62;
+      margin-bottom: 1.6rem;
+      border-bottom: 1px dashed #c2dbdb;
+      padding-bottom: 0.8rem;
+    }
+
+    .opener {
+      background: #e2f3f2;
+      border-radius: 2rem;
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0 2rem;
+      font-size: 1.1rem;
+      color: #103f42;
+      box-shadow: inset 0 1px 3px rgba(43, 158, 154, 0.08);
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0 2.4rem;
+    }
+
+    @media (min-width: 560px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      padding: 1.4rem 1.3rem;
+      box-shadow: 0 4px 12px rgba(0, 30, 30, 0.04);
+      border: 1px solid #e3eeef;
+      transition: transform 0.1s ease, border-color 0.15s;
+    }
+
+    .card:hover {
+      border-color: #80c9c6;
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 1.1rem;
+      font-weight: 550;
+      color: #0d3b3d;
+      margin-bottom: 0.4rem;
+    }
+
+    .card h3::before {
+      content: "·";
+      color: #2b9e9a;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-right: 0.15rem;
+      line-height: 1;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2c4a50;
+      margin-top: 0.2rem;
+    }
+
+    .story-note {
+      background: #f3faf9;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      border-left: 6px solid #60b5b1;
+    }
+
+    .btn-link-wrapper {
+      margin: 1.8rem 0 0.8rem;
+      text-align: left;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #2b9e9a;
+      color: #11635e;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-ghost:hover {
+      background: #2b9e9a;
+      color: #ffffff;
+    }
+
+    a {
+      color: #1b7e79;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #97cfcc;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: #0f514c;
+      text-decoration-color: #2b9e9a;
+    }
+
+    .faq-mini {
+      margin-top: 2.2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #d3e6e5;
+    }
+
+    .faq-item {
+      display: flex;
+      gap: 0.7rem;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-item strong {
+      color: #1a5c59;
+      font-weight: 550;
+      min-width: 4.2rem;
+    }
+
+    .closing {
+      margin-top: 2.8rem;
+      padding: 0.8rem 0 0.2rem;
+      font-size: 0.95rem;
+      color: #2a5457;
+      border-top: 1px solid #d3e6e5;
+    }
+
+    small {
+      color: #4b7375;
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        padding: 1.3rem 1rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 简洁开场短句 -->
+  <span class="badge">✦ 再访笔记</span>
+  <h1>熟悉的路，新的落脚点</h1>
+  <div class="subhead">有些站点，值得你放进收藏夹的角落</div>
+
+  <div class="opener">
+    <span class="accent-border" style="border-left-color: #2b9e9a;">再次打开同一个页面，有时不是因为忘记，而是因为习惯。习惯那种清晰的布局，习惯快速找到你需要的赛程信息。今天想聊聊一个让不少朋友重新点开收藏夹的理由。</span>
+  </div>
+
+  <!-- 承接段落：从再次访问的角度 -->
+  <p style="margin-bottom: 1.2rem;">
+    你有没有这样的时刻 —— 手机浏览器里收藏了好几页，但每周都会主动点开的只有那么两三个。<a href="https://mobile-index-sporttery.com">竞彩网</a> 对我来说就属于这一类：它的移动版页面没有多余装饰，打开就是实时的指数与对阵，几乎不用等加载。即便隔了半个月再回来，界面依然熟悉，数据更新的节奏也一直稳定。
+  </p>
+  <p style="margin-bottom: 0.8rem; color: #1a4145;">
+    收藏，不只是为了以后能找到；更多时候，收藏是一种「我信任这个页面」的直觉。
+  </p>
+
+  <!-- 特点列表：网格卡片 -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>轻量响应</h3>
+      <p>页面针对手机屏幕专门优化，文字大小、按钮间距在窄屏上也清晰舒适，不像很多站点需要频繁双指缩放。</p>
+    </div>
+    <div class="card">
+      <h3>赛程总览</h3>
+      <p>按日期和联赛聚合，焦点赛事一目了然。不用翻好几层菜单，适合通勤或碎片时间快速扫一眼。</p>
+    </div>
+    <div class="card">
+      <h3>赔率变动提示</h3>
+      <p>核心数据旁附带微小的变动标识，对习惯观察趋势的用户来说，省去了逐项对比的麻烦。</p>
+    </div>
+    <div class="card">
+      <h3>无干扰浏览</h3>
+      <p>没有强制弹窗或频繁重定向，页面结构稳定，每次回来都是同样的浏览节奏，降低再次适应的成本。</p>
+    </div>
+  </div>
+
+  <!-- 场景描述 + 温和过渡 -->
+  <div class="story-note">
+    <p style="margin-bottom: 0.4rem;"><strong>一个真实的场景</strong></p>
+    <p>朋友老周上周发消息说：“之前你推荐的那个竞彩页面，我换手机后特意从历史记录里翻出来了。” 他并不是重度用户，只是周末偶尔关注几场焦点战。对他来说，能稳定打开、不迷路、不折腾，就是继续用下去的全部理由。</p>
+  </div>
+
+  <!-- 引入 FAQ 摘要，温和收束 -->
+  <div class="faq-mini">
+    <p style="font-weight: 550; color: #0f3b3d; margin-bottom: 0.7rem;">一些你可能好奇的事</p>
+    <div class="faq-item">
+      <strong>收藏会丢吗？</strong>
+      <span>只要不手动清理浏览器书签，<a href="https://mobile-index-sporttery.com">竞彩网</a> 的移动端入口一直有效，域名也没有频繁变动。</span>
+    </div>
+    <div class="faq-item">
+      <strong>数据来源？</strong>
+      <span>页面整合了主流赛事的实时指数与赛果，信息更新有明确的时间戳，适合作为参考。</span>
+    </div>
+    <div class="faq-item">
+      <strong>适合每天看吗？</strong>
+      <span>因人而异。如果你习惯在固定时间浏览赛程或指数变化，把它留在常用标签页里会方便很多。</span>
+    </div>
+  </div>
+
+  <!-- 温和结尾 + 明确链接（自然嵌入） -->
+  <div class="closing">
+    <p>一个长期留存的页面，往往不是因为功能多么花哨，而是因为它恰好满足了某个持续的需求。如果你也一直在寻找一个稳定、简洁、适合移动设备浏览的赛程信息页，不妨把 <a href="https://mobile-index-sporttery.com">竞彩网</a> 加入收藏 —— 下次再想起的时候，直接点开就好。</p>
+    <div class="btn-link-wrapper">
+      <a href="https://mobile-index-sporttery.com" class="btn-ghost">竞彩网</a>
+    </div>
+    <small style="margin-top: 1.2rem;">—— 收藏夹里的老朋友 · 从一次重访开始</small>
+  </div>
+</div>
+</body>
+</html>
